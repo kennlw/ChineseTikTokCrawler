@@ -46,10 +46,10 @@ headers = {
 
 offset = 0
 count = 1
-jsonCount = 0
+json_count = 0
 user_ls = []
 vid_ls = []
-jsonDict = {}
+json_dict = {}
 
 for i in range(101):
   kw_ls = ["早上好，好看，酷，大家，特别，已经，虽然，而且，不但，无法"]
@@ -72,8 +72,8 @@ for i in range(101):
   try:
     
     querystring = {"keyword": str(keyword()), "offset": str(offset), "count":str(count)}
-    jsonResponse = requests.request("GET", url, headers=headers, params=querystring).json()
-    response = jsonResponse["aweme_list"]
+    json_response = requests.request("GET", url, headers=headers, params=querystring).json()
+    response = json_response["aweme_list"]
     
     for x in response:
       user_ls.append({k:x["author"][k] for k in imAuthKeys})
@@ -82,8 +82,8 @@ for i in range(101):
     vid_dict = vid_ls[i]
     vid_dict["desc"] = x["desc"]
 
-    jsonDict[str(jsonCount)] = jsonResponse
-    jsonCount+=1
+    json_dict[str(json_count)] = json_response
+    json_count+=1
 
   
   except IndexError: print("Index Error")

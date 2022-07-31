@@ -85,14 +85,13 @@ for i in range(101):
     json_dict[str(json_count)] = json_response
     json_count+=1
 
-  
   except IndexError: print("Index Error")
   except KeyError: print("Key Error")
 
   offset+=count
   time.sleep(2)
 
-
+  
 df1 = pd.DataFrame(user_ls)
 df2 = pd.DataFrame(vid_ls)
 
